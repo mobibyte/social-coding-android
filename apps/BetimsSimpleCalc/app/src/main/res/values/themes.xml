@@ -1,8 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyKotlinApp" parent="Theme.Material3.DayNight.NoActionBar">
-            <item name="colorAccent">@android:color/holo_blue_dark</item>
-    </style>
-
-    <style name="Theme.MyKotlinApp" parent="Base.Theme.MyKotlinApp" />
-</resources>
