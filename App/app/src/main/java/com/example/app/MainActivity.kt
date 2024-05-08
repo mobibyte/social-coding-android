@@ -93,6 +93,10 @@ fun MomoNav() {
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(Screens.Home.screen) { Home(navController = navigationController)}
+            composable(Screens.About.screen) { About(navController = navigationController)}
+            composable(Screens.Officers.screen) { Officers(navController = navigationController) }
+            composable(Screens.Events.screen) { Events(navController = navigationController) }
+            composable(Screens.Apps.screen) { Apps(navController = navigationController) }
         }
     }
 }
