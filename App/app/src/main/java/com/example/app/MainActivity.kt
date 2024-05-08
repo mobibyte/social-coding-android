@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.example.app
 
 import android.os.Bundle
@@ -16,12 +18,26 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.app.ui.theme.AppTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
@@ -34,78 +50,59 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val navController = rememberNavController()
-                    AppNavigation(navController = navController)
-                    Greeting(navController)
+                    MomoNav();
                 }
             }
         }
     }
 }
-
 @Composable
-fun Greeting(navController: NavHostController, modifier: Modifier = Modifier) {
-    Column (
-        modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Image(
-            painter = painterResource(id = R.drawable.momo),
-            contentDescription = "Momologo",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        )
-        Text(
-            text = "Discover Magic of Making Apps!",
-            modifier = Modifier.padding(16.dp),
-            style = MaterialTheme.typography.headlineSmall
-        )
-        AppButtons(
-            onAboutClick = { navController.navigate(Screen.About.route) },
-            onOfficerClick = { navController.navigate(Screen.Officers.route) },
-            onEventsClick = { navController.navigate(Screen.Events.route) },
-            onAppsClick = { navController.navigate(Screen.Apps.route) },
-        )
-    }
-}
+fun MomoNav() {
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+    val navigationController = rememberNavController()
 
-@Composable
-fun AppButtons(
-    onAboutClick: () -> Unit,
-    onOfficerClick: () -> Unit,
-    onEventsClick: () -> Unit,
-    onAppsClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceEvenly
-    ) {
-        Button(onClick = onAboutClick) {
-            Text(text = "About")
-        }
-        Button(onClick = onOfficerClick) {
-            Text(text = "Officers")
-        }
-        Button(onClick = onEventsClick){
-            Text(text = "Events")
-        }
-        Button(onClick = onAppsClick) {
-            Text(text = "Apps")
-        }
-    }
-}
+    Scaffold (
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),
+                title = {
+                    Text(
+                        "MomoApp",
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = {/*Do something*/}) {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = "Localized Desc."
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { /*Do something*/ }) {
+                        Icon(
+                            imageVector = Icons.Filled.Menu,
+                            contentDescription = "localized Desc"
+                        )
+                    }
+                },
+                scrollBehavior = scrollBehavior,
+            )
+        },
+    ) { paddingValues ->
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AppTheme {
-        val navController = rememberNavController()
-        AppNavigation(navController = navController)
-        Greeting(navController)
+        NavHost(
+            navController = navigationController,
+            startDestination = Screens.Home.screen,
+            modifier = Modifier.padding(paddingValues)
+        ) {
+            composable(Screens.Home.screen) { Home(navController = navigationController)}
+        }
     }
 }
