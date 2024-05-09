@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -44,6 +45,11 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier) {
                 )
             }
             item {
+                Text(
+                    text = "MOBI",
+                    modifier = Modifier.padding(top = 16.dp),
+                    style = MaterialTheme.typography.headlineLarge
+                )
                 Text(
                     text = "Discover Magic of Making Apps!",
                     modifier = Modifier.padding(16.dp),
