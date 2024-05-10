@@ -38,6 +38,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -78,6 +79,7 @@ fun MomoNav() {
     val navigationController = rememberNavController()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     //Navigation
     ModalNavigationDrawer(
@@ -132,11 +134,11 @@ fun MomoNav() {
                     item {
                         NavigationDrawerItem(
                             label = { Text("Events") },
-                            selected = currentRoute(navigationController) == Screens.Events.screen,
+                            selected = false,
                             onClick = {
                                 scope.launch {
                                     drawerState.close()
-                                    navigationController.navigate(Screens.Events.screen)
+                                    openUrl("https://codewith.mobi/src/events/events.html", context)
                                 }
                             },
                             icon = { Icon(Icons.Default.DateRange, contentDescription = "Events") }
@@ -211,7 +213,6 @@ fun MomoNav() {
                 composable(Screens.Home.screen) { Home(navController = navigationController) }
                 composable(Screens.About.screen) { About(navController = navigationController) }
                 composable(Screens.Officers.screen) { Officers(navController = navigationController) }
-                composable(Screens.Events.screen) { Events(navController = navigationController) }
                 composable(Screens.Apps.screen) { Apps(navController = navigationController) }
             }
         }

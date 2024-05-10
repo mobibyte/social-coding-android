@@ -129,7 +129,7 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier) {
                 AppButtons(
                     onAboutClick = { navController.navigate(Screens.About.screen) },
                     onOfficerClick = { navController.navigate(Screens.Officers.screen) },
-                    onEventsClick = { navController.navigate(Screens.Events.screen) },
+                    onEventsClick = { openUrl("https://codewith.mobi/src/events/events.html", context) },
                     onAppsClick = { navController.navigate(Screens.Apps.screen) },
                 )
             }
