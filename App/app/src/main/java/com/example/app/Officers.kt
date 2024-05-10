@@ -55,7 +55,7 @@ fun OfficerTemp(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(50.dp)
+            .padding(45.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // PFP, Name, Title, and Description
@@ -91,7 +91,7 @@ fun OfficerTemp(
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(5.dp)
+                modifier = Modifier.padding(top = 5.dp, start = 10.dp, end = 10.dp)
             )
 
             //website where i got the icons: https://www.iconfinder.com/search?q=instagram&category=social-media&price=free
@@ -120,12 +120,20 @@ fun Officers(navController: NavHostController, context: Context = LocalContext.c
     LazyColumn (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(top = 16.dp, ),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        //Diego
+        item {
+            Text(
+                text = "Meet our Officers!",
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(5.dp),
+            )
+        }
+
+        //Diego Vester
         item {
             val socialMediaLinkDiego = listOf(
                 SocialMediaLink(
@@ -143,6 +151,141 @@ fun Officers(navController: NavHostController, context: Context = LocalContext.c
                         "of class. My passion for helping people has led me to fundraise for non-profits " +
                         "and work with startups. Hopefully, I can inspire others to be creative and collaborate.\n",
                 socialMediaLinks = socialMediaLinkDiego
+            )
+        }
+
+        //Trevor Reigh
+        item {
+            val socialMediaLinkTrevor = listOf(
+                SocialMediaLink(
+                    icon = R.drawable.instagram_icon,
+                    url = "https://codewith.mobi/apps/trevorddr5/trevy.html",
+                    contentDescription = "instagram"
+                ),
+                SocialMediaLink(
+                    icon = R.drawable.linkedin_business_network_social_icon,
+                    url = "https://codewith.mobi/apps/trevorddr5/trevy.html",
+                    contentDescription = "instagram"
+                ),
+                SocialMediaLink(
+                    icon = R.drawable.github_icon,
+                    url = "https://codewith.mobi/apps/trevorddr5/trevy.html",
+                    contentDescription = "instagram"
+                ),
+            )
+
+            OfficerTemp(
+                pfp = R.drawable.trevor_pfp,
+                name = "Trevor Reigh",
+                title = "Vice President",
+                description = "I am a dedicated follower of the church of Long Long live MOBI, and Long live Long!\n" +
+                        "\"woah I know that guy he's so cool\" – everyone\n",
+                socialMediaLinks = socialMediaLinkTrevor
+            )
+        }
+
+        //Devrat Patel
+        item {
+            val socialMediaLinkDevrat = listOf(
+                SocialMediaLink(
+                    icon = R.drawable.linkedin_business_network_social_icon,
+                    url = "https://www.linkedin.com/in/devratpatel/",
+                    contentDescription = "linkedin"
+                ),
+                SocialMediaLink(
+                    icon = R.drawable.github_icon,
+                    url = "https://github.com/DevratPatel",
+                    contentDescription = "github"
+                ),
+            )
+
+            OfficerTemp(
+                pfp = R.drawable.devrat_pfp,
+                name = "Devrat Patel",
+                title = "Sr. Developer + Marketing",
+                description = "\n" +
+                        "\n" +
+                        "Howdy Hey \uD83D\uDC4B\uD83C\uDFFB , I'm Devrat. I'm a computer science " +
+                        "major student. I joined Mobi in my freshman year (i'm still a freshman lol) " +
+                        "through social coding! I casually play badminton \uD83C\uDFF8. I'm a big Minions fan!!" +
+                        " I encourage everyone to join Mobi and learn together. ",
+                socialMediaLinks = socialMediaLinkDevrat
+            )
+        }
+
+        //Ayden Koyanagi
+        item {
+            val socialMediaLinkAyden = listOf(
+                SocialMediaLink(
+                    icon = R.drawable.instagram_icon,
+                    url = "https://www.instagram.com/mediocre_music_man_koiboi?igsh=aHJ3NXUyNWQwaWYz",
+                    contentDescription = "instagram"
+                ),
+                SocialMediaLink(
+                    icon = R.drawable.linkedin_business_network_social_icon,
+                    url = "https://www.linkedin.com/in/ayden-koyanagi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                    contentDescription = "linkedin"
+                ),
+            )
+
+            OfficerTemp(
+                pfp = R.drawable.ayden_pfp,
+                name = "Ayden Koyanagi",
+                title = "Sr. Developer + Marketing",
+                description = " Hi! I'm Ayden, currently in my third year at UTA, studying computer science, " +
+                        "and in my first year with MOBI. I'm most passionate about bridging the gap between " +
+                        "technology and creative art. Some of my hobbies include creating music, cooking, " +
+                        "and following Formula 1! ",
+                socialMediaLinks = socialMediaLinkAyden
+            )
+        }
+
+        //Viraj Sabhaya
+        item {
+            val socialMediaLinkViraj = listOf(
+                SocialMediaLink(
+                    icon = R.drawable.linkedin_business_network_social_icon,
+                    url = "https://www.linkedin.com/in/vsabhaya23/",
+                    contentDescription = "Linkedin"
+                ),
+                SocialMediaLink(
+                    icon = R.drawable.github_icon,
+                    url = "https://github.com/virajsabhaya23",
+                    contentDescription = "Github"
+                ),
+            )
+
+            OfficerTemp(
+                pfp = R.drawable.viraj,
+                name = "Viraj Sabhaya",
+                title = "Jr. Developer",
+                description = "I'm a senior pursuing Computer Science at UT Arlington, deeply engaged " +
+                        "in software development and research projects at the IT Lab. Specializing in AI," +
+                        " SaaS, data analysis, and software development, I'm driven to explore innovative" +
+                        " solutions and collaborate on impactful projects that push the boundaries of technology. ",
+                socialMediaLinks = socialMediaLinkViraj
+            )
+        }
+
+        //Ashly Andrews
+        item {
+            val socialMediaLinkAshley = listOf(
+                SocialMediaLink(
+                    icon = R.drawable.github_icon,
+                    url = "https://github.com/codewithashley",
+                    contentDescription = "Github"
+                ),
+            )
+
+            OfficerTemp(
+                pfp = R.drawable.ash,
+                name = "Ashley Andrews",
+                title = "Jr. Developer",
+                description = "Ciao! I'm Ashley a freshman software engineering student at UTA. " +
+                        "I'm passionate about learning more about cybersecurity and software engineering. " +
+                        "As a newly elected officer of MOBI I hope to develop my skillsets and contribute to the club." +
+                        " Current languages I'm learning: C, Python, Italian and German. ",
+                socialMediaLinks = socialMediaLinkAshley
             )
         }
         
