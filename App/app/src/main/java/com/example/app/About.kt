@@ -23,7 +23,7 @@ import coil.compose.AsyncImage
 @Composable
 fun AboutTemplate(title: String, description: String, img: Int) {
     Surface(
-        color = MaterialTheme.colorScheme.outlineVariant,
+        color = MaterialTheme.colorScheme.secondaryContainer,
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier.fillMaxWidth()
             .padding(10.dp)
