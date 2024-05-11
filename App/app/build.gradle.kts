@@ -50,6 +50,17 @@ android {
 }
 
 dependencies {
+    val nav_version = "2.7.7"
+
+    //links browser
+    implementation("androidx.browser:browser:1.4.0")
+
+    //async images
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
+    //drawer navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
