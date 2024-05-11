@@ -46,6 +46,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.app.AppScreens.SortingAlgorithm.SortingAlgo
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -203,10 +204,14 @@ fun MomoNav() {
                 startDestination = Screens.Home.screen,
                 modifier = Modifier.padding(paddingValues),
             ) {
+                //main app navigation
                 composable(Screens.Home.screen) { Home(navController = navigationController) }
                 composable(Screens.About.screen) { About(navController = navigationController) }
                 composable(Screens.Officers.screen) { Officers(navController = navigationController) }
                 composable(Screens.Apps.screen) { Apps(navController = navigationController) }
+
+                //custom apps
+                composable(Screens.SortingAlgorithm.screen) { SortingAlgo(navController = navigationController)}
             }
         }
 
