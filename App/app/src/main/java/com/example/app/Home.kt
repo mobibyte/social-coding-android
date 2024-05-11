@@ -11,6 +11,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -22,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -139,17 +142,41 @@ fun AppButtons(
             .padding(bottom = 16.dp),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        ElevatedButton(colors = ButtonDefaults.filledTonalButtonColors(), onClick = onAboutClick) {
-            Text(text = "About")
+        val context = LocalContext.current
+
+        IconButton(
+            onClick = { openUrl("https://youtube.com/@mobibyte", context) }
+        ) {
+            Icon(
+                painterResource(id = R.drawable.youtube_icon),
+                contentDescription = "Youtube Icon"
+            )
         }
-        ElevatedButton(colors = ButtonDefaults.filledTonalButtonColors(), onClick = onOfficerClick) {
-            Text(text = "Officers")
+        IconButton(
+            onClick = { openUrl("https://www.instagram.com/codewithmobi", context) }
+        ) {
+            Icon(
+                painterResource(id = R.drawable.instagram_icon),
+                contentDescription = "Instagram Icon"
+            )
         }
-        ElevatedButton(colors = ButtonDefaults.filledTonalButtonColors(), onClick = onEventsClick){
-            Text(text = "Events")
+
+        IconButton(
+            onClick = { openUrl("https://www.github.com/mobibyte", context) }
+        ) {
+            Icon(
+                painterResource(id = R.drawable.github_icon),
+                contentDescription = "Github Icon"
+            )
         }
-        ElevatedButton(colors = ButtonDefaults.filledTonalButtonColors(), onClick = onAppsClick) {
-            Text(text = "Apps")
+
+        IconButton(
+            onClick = { openUrl("https://www.facebook.com/codewithmobi", context) }
+        ) {
+            Icon(
+                painterResource(id = R.drawable.facebook_icon),
+                contentDescription = "Facebook Icon"
+            )
         }
     }
 }
