@@ -10,4 +10,5 @@ sealed class Screens(val screen: String) {
 
     // app screens data objects
     data object SortingAlgorithm : Screens("sortingAlgo")
+    data object FallingSquareAnimation : Screens("fallingSquareAnim")
 }

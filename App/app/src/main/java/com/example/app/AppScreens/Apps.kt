@@ -55,9 +55,13 @@ fun Apps(navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        //Sorting Algorithm App!
+        //Sorting Algorithm App - Betim Hodza
         item {
             AppTemp(title = "Sorting Algorithm", img = R.drawable.mobi_logo, navController, "sortingAlgo")
+        }
+        //Falling Cube Animation - Betim Hodza
+        item {
+            AppTemp(title = "Falling Square", img = R.drawable.fallingsquare, navController, "fallingSquareAnim")
         }
 
     }

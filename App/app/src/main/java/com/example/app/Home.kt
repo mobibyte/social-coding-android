@@ -4,13 +4,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -29,16 +28,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.example.app.AppScreens.FallingSquare.FallingSquare
 
 @Composable
 fun Home(navController: NavHostController, modifier: Modifier = Modifier) {
     val context = LocalContext.current
-
+    
     Surface(
         color = MaterialTheme.colorScheme.background
     ) {
         LazyColumn (
-            modifier = modifier.fillMaxWidth(),
+            modifier = modifier
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
@@ -61,6 +62,10 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier) {
                             .clip(CircleShape)
                     )
                 }
+            }
+
+            item {
+                FallingSquare(duration = 3500, 3, 0)
             }
 
             item {
@@ -117,12 +122,7 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier) {
             }
 
             item {
-                AppButtons(
-                    onAboutClick = { navController.navigate(Screens.About.screen) },
-                    onOfficerClick = { navController.navigate(Screens.Officers.screen) },
-                    onEventsClick = { openUrl("https://codewith.mobi/src/events/events.html", context) },
-                    onAppsClick = { navController.navigate(Screens.Apps.screen) },
-                )
+                AppButtons()
             }
         }
     }
@@ -130,10 +130,6 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier) {
 
 @Composable
 fun AppButtons(
-    onAboutClick: () -> Unit,
-    onOfficerClick: () -> Unit,
-    onEventsClick: () -> Unit,
-    onAppsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -148,7 +144,7 @@ fun AppButtons(
             onClick = { openUrl("https://youtube.com/@mobibyte", context) }
         ) {
             Icon(
-                painterResource(id = R.drawable.youtube_icon),
+                painterResource(id = R.drawable.youtube_logo_icon),
                 contentDescription = "Youtube Icon"
             )
         }
@@ -174,7 +170,7 @@ fun AppButtons(
             onClick = { openUrl("https://www.facebook.com/codewithmobi", context) }
         ) {
             Icon(
-                painterResource(id = R.drawable.facebook_icon),
+                painterResource(id = R.drawable.facebook_logo_social_network_icon),
                 contentDescription = "Facebook Icon"
             )
         }
