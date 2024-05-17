@@ -170,7 +170,7 @@ fun MomoNav() {
                     //title for bar
                     title = {
                         Text(
-                            "Momoapp",
+                            "MobiByte",
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
