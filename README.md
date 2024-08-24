@@ -86,6 +86,7 @@
 ### Prerequisites
 
 > When you clone this project, Android Studio will take care of all dependencies with the gradel file.
+> Android studio iguana: https://developer.android.com/studio/archive
 
 ### Installation
 
